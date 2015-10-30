@@ -14,7 +14,7 @@ public class GarageController {
 
     @RequestMapping("/")
     public String greeting() {
-        return "Hello world!";
+        return "UP";
     }
 
     @RequestMapping("/light")
@@ -24,7 +24,7 @@ public class GarageController {
             lightPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "MyLights", PinState.LOW);
         }
 
-        lightPin.pulse(5);
+        lightPin.pulse(30);
 
         return "OK";
     }
@@ -36,7 +36,7 @@ public class GarageController {
             doorPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyDoor", PinState.LOW);
         }
 
-        doorPin.pulse(5);
+        doorPin.pulse(30);
 
         return "OK";
     }
@@ -45,7 +45,7 @@ public class GarageController {
     public String doorSensor() {
         if (sensorPin == null) {
             GpioController gpio = GpioFactory.getInstance();
-            sensorPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02, "MyDoor", PinPullResistance.PULL_DOWN);
+            sensorPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02, "MyDoor", PinPullResistance.PULL_UP);
         }
 
         if(sensorPin.isHigh()) {
