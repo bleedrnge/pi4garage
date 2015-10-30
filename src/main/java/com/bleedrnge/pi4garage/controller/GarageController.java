@@ -24,7 +24,7 @@ public class GarageController {
             lightPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "MyLights", PinState.HIGH);
         }
 
-        lightPin.pulse(50);
+        lightPin.pulse(500);
 
         return "OK";
     }
@@ -36,7 +36,7 @@ public class GarageController {
             doorPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyDoor", PinState.HIGH);
         }
 
-        doorPin.pulse(50);
+        doorPin.pulse(500);
 
         return "OK";
     }
