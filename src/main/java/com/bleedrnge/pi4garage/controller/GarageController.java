@@ -1,7 +1,6 @@
 package com.bleedrnge.pi4garage.controller;
 
 import com.pi4j.io.gpio.*;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
