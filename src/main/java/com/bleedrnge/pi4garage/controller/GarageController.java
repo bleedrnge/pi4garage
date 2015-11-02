@@ -20,10 +20,17 @@ public class GarageController {
     public String light() {
         if (lightPin == null) {
             GpioController gpio = GpioFactory.getInstance();
-            lightPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "MyLights", PinState.LOW);
+            lightPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "MyLights");
         }
 
-        lightPin.pulse(250);
+        lightPin.high();
+        lightPin.low();
+        try {
+            Thread.sleep(250);
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        lightPin.high();
 
         return "OK";
     }
@@ -32,10 +39,17 @@ public class GarageController {
     public String door() {
         if (doorPin == null) {
             GpioController gpio = GpioFactory.getInstance();
-            doorPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyDoor", PinState.LOW);
+            doorPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyDoor");
         }
 
-        doorPin.pulse(250);
+        doorPin.high();
+        doorPin.low();
+        try {
+            Thread.sleep(250);
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        doorPin.high();
 
         return "OK";
     }
