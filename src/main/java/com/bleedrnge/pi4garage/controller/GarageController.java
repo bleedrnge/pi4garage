@@ -21,7 +21,7 @@ public class GarageController {
     public String light() {
         if (lightPin == null) {
             GpioController gpio = GpioFactory.getInstance();
-            lightPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "MyLights", PinState.HIGH);
+            lightPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00, "MyLights", PinState.LOW);
         }
 
         lightPin.pulse(250);
@@ -33,7 +33,7 @@ public class GarageController {
     public String door() {
         if (doorPin == null) {
             GpioController gpio = GpioFactory.getInstance();
-            doorPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyDoor", PinState.HIGH);
+            doorPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "MyDoor", PinState.LOW);
         }
 
         doorPin.pulse(250);
