@@ -11,7 +11,7 @@ public class GarageController {
     private static GpioPinDigitalOutput doorPin;
     private static GpioPinDigitalInput sensorPin;
 
-    @RequestMapping("/")
+    @RequestMapping("/health")
     public String greeting() {
         return "UP";
     }
