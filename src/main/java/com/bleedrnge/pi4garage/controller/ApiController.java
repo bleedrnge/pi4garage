@@ -5,14 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class GarageController {
+@RequestMapping("/api")
+public class ApiController {
 
     private static GpioPinDigitalOutput lightPin;
     private static GpioPinDigitalOutput doorPin;
     private static GpioPinDigitalInput sensorPin;
 
     @RequestMapping("/health")
-    public String greeting() {
+    public String health() {
         return "UP";
     }
 
@@ -32,7 +33,7 @@ public class GarageController {
         }
         lightPin.high();
 
-        return "OK";
+        return "Light Toggled";
     }
 
     @RequestMapping("/door")
@@ -51,7 +52,7 @@ public class GarageController {
         }
         doorPin.high();
 
-        return "OK";
+        return "Door State Toggled";
     }
 
     @RequestMapping("/sensor")
