@@ -9,7 +9,7 @@ $(document).ready(function() {
 
         $.ajax("/api/light", {
             dataType: "text",
-            success: function(data, textStatus) {
+            success: function(data) {
                 reportResponse(data);
             }
         });
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
         $.ajax("/api/door", {
             dataType: "text",
-            success: function(data, textStatus) {
+            success: function(data) {
                 reportResponse(data);
             }
         });
@@ -37,7 +37,7 @@ $(document).ready(function() {
 
         $.ajax("/api/sensor", {
             dataType: "text",
-            success: function(data, textStatus) {
+            success: function(data) {
                 reportResponse(data);
             }
         });
